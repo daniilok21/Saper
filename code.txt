@@ -1,0 +1,2306 @@
+import sys
+import webbrowser
+import random
+import time
+import sqlite3
+from threading import Thread
+from pprint import pprint
+from PyQt6 import QtCore, QtGui, QtWidgets, QtMultimedia
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QMessageBox, QMainWindow, QDialog
+from PyQt6.QtGui import QIcon, QPixmap
+
+
+class Plant(object):
+    def setupUig(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(565, 420, 101, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.verticalLayoutWidget_plant = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget_plant.setGeometry(QtCore.QRect(120, 70, 401, 361))
+        self.verticalLayoutWidget_plant.setObjectName("verticalLayoutWidget")
+        self.verticalLayout_plant = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_plant)
+        self.verticalLayout_plant.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_plant.setObjectName("verticalLayout")
+        self.horizontalLayout_1_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_1_line.setObjectName("horizontalLayout_1_line")
+        self.place_1_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_1.setText("")
+        self.place_1_1.setObjectName("place_1_1")
+        self.horizontalLayout_1_line.addWidget(self.place_1_1)
+        self.place_2_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_1.setText("")
+        self.place_2_1.setObjectName("place_2_1")
+        self.horizontalLayout_1_line.addWidget(self.place_2_1)
+        self.place_3_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_1.setText("")
+        self.place_3_1.setObjectName("place_3_1")
+        self.horizontalLayout_1_line.addWidget(self.place_3_1)
+        self.place_4_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_1.setText("")
+        self.place_4_1.setObjectName("place_4_1")
+        self.horizontalLayout_1_line.addWidget(self.place_4_1)
+        self.place_5_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_1.setText("")
+        self.place_5_1.setObjectName("place_5_1")
+        self.horizontalLayout_1_line.addWidget(self.place_5_1)
+        self.place_6_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_1.setText("")
+        self.place_6_1.setObjectName("place_6_1")
+        self.horizontalLayout_1_line.addWidget(self.place_6_1)
+        self.place_7_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_1.setText("")
+        self.place_7_1.setObjectName("place_7_1")
+        self.horizontalLayout_1_line.addWidget(self.place_7_1)
+        self.place_8_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_1.setText("")
+        self.place_8_1.setObjectName("place_8_1")
+        self.horizontalLayout_1_line.addWidget(self.place_8_1)
+        self.place_9_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_1.setText("")
+        self.place_9_1.setObjectName("place_9_1")
+        self.horizontalLayout_1_line.addWidget(self.place_9_1)
+        self.place_10_1 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_1.setText("")
+        self.place_10_1.setObjectName("place_10_1")
+        self.horizontalLayout_1_line.addWidget(self.place_10_1)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_1_line)
+        self.horizontalLayout_2_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2_line.setObjectName("horizontalLayout_2_line")
+        self.place_1_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_2.setText("")
+        self.place_1_2.setObjectName("place_1_2")
+        self.horizontalLayout_2_line.addWidget(self.place_1_2)
+        self.place_2_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_2.setText("")
+        self.place_2_2.setObjectName("place_2_2")
+        self.horizontalLayout_2_line.addWidget(self.place_2_2)
+        self.place_3_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_2.setText("")
+        self.place_3_2.setObjectName("place_3_2")
+        self.horizontalLayout_2_line.addWidget(self.place_3_2)
+        self.place_4_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_2.setText("")
+        self.place_4_2.setObjectName("place_4_2")
+        self.horizontalLayout_2_line.addWidget(self.place_4_2)
+        self.place_5_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_2.setText("")
+        self.place_5_2.setObjectName("place_5_2")
+        self.horizontalLayout_2_line.addWidget(self.place_5_2)
+        self.place_6_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_2.setText("")
+        self.place_6_2.setObjectName("place_6_2")
+        self.horizontalLayout_2_line.addWidget(self.place_6_2)
+        self.place_7_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_2.setText("")
+        self.place_7_2.setObjectName("place_7_2")
+        self.horizontalLayout_2_line.addWidget(self.place_7_2)
+        self.place_8_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_2.setText("")
+        self.place_8_2.setObjectName("place_8_2")
+        self.horizontalLayout_2_line.addWidget(self.place_8_2)
+        self.place_9_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_2.setText("")
+        self.place_9_2.setObjectName("place_9_2")
+        self.horizontalLayout_2_line.addWidget(self.place_9_2)
+        self.place_10_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_2.setText("")
+        self.place_10_2.setObjectName("place_10_2")
+        self.horizontalLayout_2_line.addWidget(self.place_10_2)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_2_line)
+        self.horizontalLayout_3_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3_line.setObjectName("horizontalLayout_3_line")
+        self.place_1_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_3.setText("")
+        self.place_1_3.setObjectName("place_1_3")
+        self.horizontalLayout_3_line.addWidget(self.place_1_3)
+        self.place_2_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_3.setText("")
+        self.place_2_3.setObjectName("place_2_3")
+        self.horizontalLayout_3_line.addWidget(self.place_2_3)
+        self.place_3_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_3.setText("")
+        self.place_3_3.setObjectName("place_3_3")
+        self.horizontalLayout_3_line.addWidget(self.place_3_3)
+        self.place_4_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_3.setText("")
+        self.place_4_3.setObjectName("place_4_3")
+        self.horizontalLayout_3_line.addWidget(self.place_4_3)
+        self.place_5_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_3.setText("")
+        self.place_5_3.setObjectName("place_5_3")
+        self.horizontalLayout_3_line.addWidget(self.place_5_3)
+        self.place_6_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_3.setText("")
+        self.place_6_3.setObjectName("place_6_3")
+        self.horizontalLayout_3_line.addWidget(self.place_6_3)
+        self.place_7_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_3.setText("")
+        self.place_7_3.setObjectName("place_7_3")
+        self.horizontalLayout_3_line.addWidget(self.place_7_3)
+        self.place_8_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_3.setText("")
+        self.place_8_3.setObjectName("place_8_3")
+        self.horizontalLayout_3_line.addWidget(self.place_8_3)
+        self.place_9_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_3.setText("")
+        self.place_9_3.setObjectName("place_9_3")
+        self.horizontalLayout_3_line.addWidget(self.place_9_3)
+        self.place_10_3 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_3.setText("")
+        self.place_10_3.setObjectName("place_10_3")
+        self.horizontalLayout_3_line.addWidget(self.place_10_3)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_3_line)
+        self.horizontalLayout_4_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4_line.setObjectName("horizontalLayout_4_line")
+        self.place_1_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_4.setText("")
+        self.place_1_4.setObjectName("place_1_4")
+        self.horizontalLayout_4_line.addWidget(self.place_1_4)
+        self.place_2_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_4.setText("")
+        self.place_2_4.setObjectName("place_2_4")
+        self.horizontalLayout_4_line.addWidget(self.place_2_4)
+        self.place_3_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_4.setText("")
+        self.place_3_4.setObjectName("place_3_4")
+        self.horizontalLayout_4_line.addWidget(self.place_3_4)
+        self.place_4_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_4.setText("")
+        self.place_4_4.setObjectName("place_4_4")
+        self.horizontalLayout_4_line.addWidget(self.place_4_4)
+        self.place_5_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_4.setText("")
+        self.place_5_4.setObjectName("place_5_4")
+        self.horizontalLayout_4_line.addWidget(self.place_5_4)
+        self.place_6_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_4.setText("")
+        self.place_6_4.setObjectName("place_6_4")
+        self.horizontalLayout_4_line.addWidget(self.place_6_4)
+        self.place_7_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_4.setText("")
+        self.place_7_4.setObjectName("place_7_4")
+        self.horizontalLayout_4_line.addWidget(self.place_7_4)
+        self.place_8_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_4.setText("")
+        self.place_8_4.setObjectName("place_8_4")
+        self.horizontalLayout_4_line.addWidget(self.place_8_4)
+        self.place_9_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_4.setText("")
+        self.place_9_4.setObjectName("place_9_4")
+        self.horizontalLayout_4_line.addWidget(self.place_9_4)
+        self.place_10_4 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_4.setText("")
+        self.place_10_4.setObjectName("place_10_4")
+        self.horizontalLayout_4_line.addWidget(self.place_10_4)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_4_line)
+        self.horizontalLayout_5_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_5_line.setObjectName("horizontalLayout_5_line")
+        self.place_1_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_5.setText("")
+        self.place_1_5.setObjectName("place_1_5")
+        self.horizontalLayout_5_line.addWidget(self.place_1_5)
+        self.place_2_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_5.setText("")
+        self.place_2_5.setObjectName("place_2_5")
+        self.horizontalLayout_5_line.addWidget(self.place_2_5)
+        self.place_3_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_5.setText("")
+        self.place_3_5.setObjectName("place_3_5")
+        self.horizontalLayout_5_line.addWidget(self.place_3_5)
+        self.place_4_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_5.setText("")
+        self.place_4_5.setObjectName("place_4_5")
+        self.horizontalLayout_5_line.addWidget(self.place_4_5)
+        self.place_5_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_5.setText("")
+        self.place_5_5.setObjectName("place_5_5")
+        self.horizontalLayout_5_line.addWidget(self.place_5_5)
+        self.place_6_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_5.setText("")
+        self.place_6_5.setObjectName("place_6_5")
+        self.horizontalLayout_5_line.addWidget(self.place_6_5)
+        self.place_7_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_5.setText("")
+        self.place_7_5.setObjectName("place_7_5")
+        self.horizontalLayout_5_line.addWidget(self.place_7_5)
+        self.place_8_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_5.setText("")
+        self.place_8_5.setObjectName("place_8_5")
+        self.horizontalLayout_5_line.addWidget(self.place_8_5)
+        self.place_9_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_5.setText("")
+        self.place_9_5.setObjectName("place_9_5")
+        self.horizontalLayout_5_line.addWidget(self.place_9_5)
+        self.place_10_5 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_5.setText("")
+        self.place_10_5.setObjectName("place_10_5")
+        self.horizontalLayout_5_line.addWidget(self.place_10_5)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_5_line)
+        self.horizontalLayout_6_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_6_line.setObjectName("horizontalLayout_6_line")
+        self.place_1_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_6.setText("")
+        self.place_1_6.setObjectName("place_1_6")
+        self.horizontalLayout_6_line.addWidget(self.place_1_6)
+        self.place_2_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_6.setText("")
+        self.place_2_6.setObjectName("place_2_6")
+        self.horizontalLayout_6_line.addWidget(self.place_2_6)
+        self.place_3_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_6.setText("")
+        self.place_3_6.setObjectName("place_3_6")
+        self.horizontalLayout_6_line.addWidget(self.place_3_6)
+        self.place_4_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_6.setText("")
+        self.place_4_6.setObjectName("place_4_6")
+        self.horizontalLayout_6_line.addWidget(self.place_4_6)
+        self.place_5_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_6.setText("")
+        self.place_5_6.setObjectName("place_5_6")
+        self.horizontalLayout_6_line.addWidget(self.place_5_6)
+        self.place_6_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_6.setText("")
+        self.place_6_6.setObjectName("place_6_6")
+        self.horizontalLayout_6_line.addWidget(self.place_6_6)
+        self.place_7_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_6.setText("")
+        self.place_7_6.setObjectName("place_7_6")
+        self.horizontalLayout_6_line.addWidget(self.place_7_6)
+        self.place_8_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_6.setText("")
+        self.place_8_6.setObjectName("place_8_6")
+        self.horizontalLayout_6_line.addWidget(self.place_8_6)
+        self.place_9_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_6.setText("")
+        self.place_9_6.setObjectName("place_9_6")
+        self.horizontalLayout_6_line.addWidget(self.place_9_6)
+        self.place_10_6 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_6.setText("")
+        self.place_10_6.setObjectName("place_10_6")
+        self.horizontalLayout_6_line.addWidget(self.place_10_6)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_6_line)
+        self.horizontalLayout_7_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_7_line.setObjectName("horizontalLayout_7_line")
+        self.place_1_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_7.setText("")
+        self.place_1_7.setObjectName("place_1_7")
+        self.horizontalLayout_7_line.addWidget(self.place_1_7)
+        self.place_2_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_7.setText("")
+        self.place_2_7.setObjectName("place_2_7")
+        self.horizontalLayout_7_line.addWidget(self.place_2_7)
+        self.place_3_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_7.setText("")
+        self.place_3_7.setObjectName("place_3_7")
+        self.horizontalLayout_7_line.addWidget(self.place_3_7)
+        self.place_4_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_7.setText("")
+        self.place_4_7.setObjectName("place_4_7")
+        self.horizontalLayout_7_line.addWidget(self.place_4_7)
+        self.place_5_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_7.setText("")
+        self.place_5_7.setObjectName("place_5_7")
+        self.horizontalLayout_7_line.addWidget(self.place_5_7)
+        self.place_6_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_7.setText("")
+        self.place_6_7.setObjectName("place_6_7")
+        self.horizontalLayout_7_line.addWidget(self.place_6_7)
+        self.place_7_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_7.setText("")
+        self.place_7_7.setObjectName("place_7_7")
+        self.horizontalLayout_7_line.addWidget(self.place_7_7)
+        self.place_8_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_7.setText("")
+        self.place_8_7.setObjectName("place_8_7")
+        self.horizontalLayout_7_line.addWidget(self.place_8_7)
+        self.place_9_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_7.setText("")
+        self.place_9_7.setObjectName("place_9_7")
+        self.horizontalLayout_7_line.addWidget(self.place_9_7)
+        self.place_10_7 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_7.setText("")
+        self.place_10_7.setObjectName("place_10_7")
+        self.horizontalLayout_7_line.addWidget(self.place_10_7)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_7_line)
+        self.horizontalLayout_8_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_8_line.setObjectName("horizontalLayout_8_line")
+        self.place_1_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_8.setText("")
+        self.place_1_8.setObjectName("place_1_8")
+        self.horizontalLayout_8_line.addWidget(self.place_1_8)
+        self.place_2_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_8.setText("")
+        self.place_2_8.setObjectName("place_2_8")
+        self.horizontalLayout_8_line.addWidget(self.place_2_8)
+        self.place_3_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_8.setText("")
+        self.place_3_8.setObjectName("place_3_8")
+        self.horizontalLayout_8_line.addWidget(self.place_3_8)
+        self.place_4_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_8.setText("")
+        self.place_4_8.setObjectName("place_4_8")
+        self.horizontalLayout_8_line.addWidget(self.place_4_8)
+        self.place_5_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_8.setText("")
+        self.place_5_8.setObjectName("place_5_8")
+        self.horizontalLayout_8_line.addWidget(self.place_5_8)
+        self.place_6_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_8.setText("")
+        self.place_6_8.setObjectName("place_6_8")
+        self.horizontalLayout_8_line.addWidget(self.place_6_8)
+        self.place_7_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_8.setText("")
+        self.place_7_8.setObjectName("place_7_8")
+        self.horizontalLayout_8_line.addWidget(self.place_7_8)
+        self.place_8_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_8.setText("")
+        self.place_8_8.setObjectName("place_8_8")
+        self.horizontalLayout_8_line.addWidget(self.place_8_8)
+        self.place_9_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_8.setText("")
+        self.place_9_8.setObjectName("place_9_8")
+        self.horizontalLayout_8_line.addWidget(self.place_9_8)
+        self.place_10_8 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_8.setText("")
+        self.place_10_8.setObjectName("place_10_8")
+        self.horizontalLayout_8_line.addWidget(self.place_10_8)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_8_line)
+        self.horizontalLayout_9_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_9_line.setObjectName("horizontalLayout_9_line")
+        self.place_1_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_9.setText("")
+        self.place_1_9.setObjectName("place_1_9")
+        self.horizontalLayout_9_line.addWidget(self.place_1_9)
+        self.place_2_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_9.setText("")
+        self.place_2_9.setObjectName("place_2_9")
+        self.horizontalLayout_9_line.addWidget(self.place_2_9)
+        self.place_3_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_9.setText("")
+        self.place_3_9.setObjectName("place_3_9")
+        self.horizontalLayout_9_line.addWidget(self.place_3_9)
+        self.place_4_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_9.setText("")
+        self.place_4_9.setObjectName("place_4_9")
+        self.horizontalLayout_9_line.addWidget(self.place_4_9)
+        self.place_5_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_9.setText("")
+        self.place_5_9.setObjectName("place_5_9")
+        self.horizontalLayout_9_line.addWidget(self.place_5_9)
+        self.place_6_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_9.setText("")
+        self.place_6_9.setObjectName("place_6_9")
+        self.horizontalLayout_9_line.addWidget(self.place_6_9)
+        self.place_7_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_9.setText("")
+        self.place_7_9.setObjectName("place_7_9")
+        self.horizontalLayout_9_line.addWidget(self.place_7_9)
+        self.place_8_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_9.setText("")
+        self.place_8_9.setObjectName("place_8_9")
+        self.horizontalLayout_9_line.addWidget(self.place_8_9)
+        self.place_9_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_9.setText("")
+        self.place_9_9.setObjectName("place_9_9")
+        self.horizontalLayout_9_line.addWidget(self.place_9_9)
+        self.place_10_9 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_9.setText("")
+        self.place_10_9.setObjectName("place_10_9")
+        self.horizontalLayout_9_line.addWidget(self.place_10_9)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_9_line)
+        self.horizontalLayout_10_line = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_10_line.setObjectName("horizontalLayout_10_line")
+        self.place_1_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_1_10.setText("")
+        self.place_1_10.setObjectName("place_1_10")
+        self.horizontalLayout_10_line.addWidget(self.place_1_10)
+        self.place_2_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_2_10.setText("")
+        self.place_2_10.setObjectName("place_2_10")
+        self.horizontalLayout_10_line.addWidget(self.place_2_10)
+        self.place_3_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_3_10.setText("")
+        self.place_3_10.setObjectName("place_3_10")
+        self.horizontalLayout_10_line.addWidget(self.place_3_10)
+        self.place_4_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_4_10.setText("")
+        self.place_4_10.setObjectName("place_4_10")
+        self.horizontalLayout_10_line.addWidget(self.place_4_10)
+        self.place_5_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_5_10.setText("")
+        self.place_5_10.setObjectName("place_5_10")
+        self.horizontalLayout_10_line.addWidget(self.place_5_10)
+        self.place_6_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_6_10.setText("")
+        self.place_6_10.setObjectName("place_6_10")
+        self.horizontalLayout_10_line.addWidget(self.place_6_10)
+        self.place_7_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_7_10.setText("")
+        self.place_7_10.setObjectName("place_7_10")
+        self.horizontalLayout_10_line.addWidget(self.place_7_10)
+        self.place_8_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_8_10.setText("")
+        self.place_8_10.setObjectName("place_8_10")
+        self.horizontalLayout_10_line.addWidget(self.place_8_10)
+        self.place_9_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_9_10.setText("")
+        self.place_9_10.setObjectName("place_9_10")
+        self.horizontalLayout_10_line.addWidget(self.place_9_10)
+        self.place_10_10 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_plant)
+        self.place_10_10.setText("")
+        self.place_10_10.setObjectName("place_10_10")
+        self.horizontalLayout_10_line.addWidget(self.place_10_10)
+        self.verticalLayout_plant.addLayout(self.horizontalLayout_10_line)
+        self.horizontalLayoutWidget_11 = QtWidgets.QWidget(parent=Dialog)
+        self.horizontalLayoutWidget_11.setGeometry(QtCore.QRect(120, 10, 401, 61))
+        self.horizontalLayoutWidget_11.setObjectName("horizontalLayoutWidget_11")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_11)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.flags = QtWidgets.QLCDNumber(parent=self.horizontalLayoutWidget_11)
+        self.flags.setObjectName("flags")
+        self.horizontalLayout.addWidget(self.flags)
+        self.win_or_lose_label = QtWidgets.QLabel(parent=self.horizontalLayoutWidget_11)
+        self.flag_btn = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_11)
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.win_or_lose_label.setFont(font)
+        self.win_or_lose_label.setText("")
+        self.win_or_lose_label.setObjectName("win_or_lose_label")
+        self.win_or_lose_label.hide()
+        self.flag_btn.setFont(font)
+        self.flag_btn.setText("")
+        self.flag_btn.setObjectName("flag_btn")
+        self.horizontalLayout.addWidget(self.flag_btn)
+        self.lcdNumber = QtWidgets.QLCDNumber(parent=self.horizontalLayoutWidget_11)
+        self.lcdNumber.setObjectName("lcdNumber")
+        self.horizontalLayout.addWidget(self.lcdNumber)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "          v1.0.0."))
+
+
+class MenuMenu(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.main_menu_label = QtWidgets.QLabel(parent=Dialog)
+        self.main_menu_label.setGeometry(QtCore.QRect(190, 35, 271, 91))
+        font = QtGui.QFont()
+        font.setPointSize(72)
+        font.setBold(False)
+        font.setWeight(50)
+        self.main_menu_label.setFont(font)
+        self.main_menu_label.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.main_menu_label.setObjectName("main_menu_label")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(190, 160, 271, 211))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.playy = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.playy.setMinimumSize(QtCore.QSize(20, 50))
+        self.playy.setMaximumSize(QtCore.QSize(1997997, 16777215))
+        self.playy.setObjectName("playy")
+        self.verticalLayout.addWidget(self.playy)
+        self.settings = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.settings.setMinimumSize(QtCore.QSize(20, 50))
+        self.settings.setObjectName("settings")
+        self.verticalLayout.addWidget(self.settings)
+        self.shop = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.shop.setMinimumSize(QtCore.QSize(0, 50))
+        self.shop.setObjectName("shop")
+        self.verticalLayout.addWidget(self.shop)
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.horizontalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(190, 390, 271, 41))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.stats = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        self.stats.setObjectName("stats")
+        self.horizontalLayout.addWidget(self.stats)
+        self.exit = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        self.exit.setObjectName("exit")
+        self.horizontalLayout.addWidget(self.exit)
+        self.rick_roll = QtWidgets.QPushButton(parent=Dialog)
+        self.rick_roll.setGeometry(QtCore.QRect(10, 412, 31, 31))
+        self.rick_roll.setText("")
+        self.rick_roll.setObjectName("rick_roll")
+        self.inventory_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.inventory_btn.setGeometry(QtCore.QRect(51, 412, 83, 31))
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.main_menu_label.setText(_translate("Dialog", "Сапер"))
+        self.playy.setText(_translate("Dialog", "Играть"))
+        self.settings.setText(_translate("Dialog", "Настройки"))
+        self.shop.setText(_translate("Dialog", "Магазин"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.exit.setText(_translate("Dialog", "Выйти"))
+        self.stats.setText(_translate("Dialog", "Статы"))
+        self.inventory_btn.setText(_translate("Dialog", "Инвентарь"))
+
+
+class Lvl(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.main_menu_label = QtWidgets.QLabel(parent=Dialog)
+        self.main_menu_label.setGeometry(QtCore.QRect(190, 35, 271, 91))
+        font = QtGui.QFont()
+        font.setPointSize(72)
+        font.setBold(False)
+        font.setWeight(50)
+        self.main_menu_label.setFont(font)
+        self.main_menu_label.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.main_menu_label.setObjectName("main_menu_label")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(190, 160, 271, 261))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.easy = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.easy.setMinimumSize(QtCore.QSize(20, 50))
+        self.easy.setMaximumSize(QtCore.QSize(1997997, 16777215))
+        self.easy.setObjectName("easy")
+        self.verticalLayout.addWidget(self.easy)
+        self.normal = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.normal.setMinimumSize(QtCore.QSize(20, 50))
+        self.normal.setObjectName("normal")
+        self.verticalLayout.addWidget(self.normal)
+        self.hard = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.hard.setMinimumSize(QtCore.QSize(0, 50))
+        self.hard.setObjectName("hard")
+        self.verticalLayout.addWidget(self.hard)
+        self.extrim = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.extrim.setMinimumSize(QtCore.QSize(0, 50))
+        self.extrim.setObjectName("extrim")
+        self.verticalLayout.addWidget(self.extrim)
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("pushButton")
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.main_menu_label.setText(_translate("Dialog", "Сапер"))
+        self.easy.setText(_translate("Dialog", "Легкий"))
+        self.normal.setText(_translate("Dialog", "Нормальный"))
+        self.hard.setText(_translate("Dialog", "Сложный"))
+        self.extrim.setText(_translate("Dialog", "Экстрим"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+
+
+class Stats(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(110, 10, 211, 431))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.label_2 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout.addWidget(self.label_2)
+        self.label_3 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout.addWidget(self.label_3)
+        self.label_4 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout.addWidget(self.label_4)
+        self.label_5 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout.addWidget(self.label_5)
+        self.label_6 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_6.setFont(font)
+        self.label_6.setObjectName("label_6")
+        self.verticalLayout.addWidget(self.label_6)
+        self.label_7 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.verticalLayout.addWidget(self.label_7)
+        self.label_8 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_8.setFont(font)
+        self.label_8.setObjectName("label_8")
+        self.verticalLayout.addWidget(self.label_8)
+        self.label_9 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_9.setFont(font)
+        self.label_9.setObjectName("label_9")
+        self.verticalLayout.addWidget(self.label_9)
+        self.label_10 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_10.setFont(font)
+        self.label_10.setObjectName("label_10")
+        self.verticalLayout.addWidget(self.label_10)
+        self.label_11 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_11.setFont(font)
+        self.label_11.setObjectName("label_11")
+        self.verticalLayout.addWidget(self.label_11)
+        self.label_12 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_12.setFont(font)
+        self.label_12.setObjectName("label_12")
+        self.verticalLayout.addWidget(self.label_12)
+        self.label_13 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_13.setFont(font)
+        self.label_13.setObjectName("label_13")
+        self.verticalLayout.addWidget(self.label_13)
+        self.label_14 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_14.setFont(font)
+        self.label_14.setObjectName("label_14")
+        self.verticalLayout.addWidget(self.label_14)
+        self.label_15 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_15.setFont(font)
+        self.label_15.setObjectName("label_15")
+        self.verticalLayout.addWidget(self.label_15)
+        self.label_16 = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_16.setFont(font)
+        self.label_16.setObjectName("label_15")
+        self.verticalLayout.addWidget(self.label_16)
+        self.verticalLayoutWidget_2 = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(340, 10, 201, 431))
+        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.games_sigrano = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.games_sigrano.setFont(font)
+        self.games_sigrano.setObjectName("games_sigrano")
+        self.verticalLayout_2.addWidget(self.games_sigrano)
+        self.easy_games = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.easy_games.setFont(font)
+        self.easy_games.setObjectName("easy_games")
+        self.verticalLayout_2.addWidget(self.easy_games)
+        self.normal_games = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.normal_games.setFont(font)
+        self.normal_games.setObjectName("normal_games")
+        self.verticalLayout_2.addWidget(self.normal_games)
+        self.hard_games = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.hard_games.setFont(font)
+        self.hard_games.setObjectName("hard_games")
+        self.verticalLayout_2.addWidget(self.hard_games)
+        self.extrim_games = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.extrim_games.setFont(font)
+        self.extrim_games.setObjectName("extrim_games")
+        self.verticalLayout_2.addWidget(self.extrim_games)
+        self.wins = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.wins.setFont(font)
+        self.wins.setObjectName("wins")
+        self.verticalLayout_2.addWidget(self.wins)
+        self.loses = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.loses.setFont(font)
+        self.loses.setObjectName("loses")
+        self.verticalLayout_2.addWidget(self.loses)
+        self.ne_doigrano = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.ne_doigrano.setFont(font)
+        self.ne_doigrano.setObjectName("ne_doigrano")
+        self.verticalLayout_2.addWidget(self.ne_doigrano)
+        self.wins_easy = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.wins_easy.setFont(font)
+        self.wins_easy.setObjectName("wins_easy")
+        self.verticalLayout_2.addWidget(self.wins_easy)
+        self.wins_normal = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.wins_normal.setFont(font)
+        self.wins_normal.setObjectName("wins_normal")
+        self.verticalLayout_2.addWidget(self.wins_normal)
+        self.wins_hard = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.wins_hard.setFont(font)
+        self.wins_hard.setObjectName("wins_hard")
+        self.verticalLayout_2.addWidget(self.wins_hard)
+        self.wins_extrim = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.wins_extrim.setFont(font)
+        self.wins_extrim.setObjectName("wins_extrim")
+        self.verticalLayout_2.addWidget(self.wins_extrim)
+        self.wins_on_lose = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.wins_on_lose.setFont(font)
+        self.wins_on_lose.setObjectName("wins_on_lose")
+        self.verticalLayout_2.addWidget(self.wins_on_lose)
+        self.all_time = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.all_time.setFont(font)
+        self.all_time.setObjectName("all_time")
+        self.verticalLayout_2.addWidget(self.all_time)
+        self.sa_time_in_round = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.sa_time_in_round.setFont(font)
+        self.sa_time_in_round.setObjectName("sa_time_in_round")
+        self.verticalLayout_2.addWidget(self.sa_time_in_round)
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("pushButton")
+        self.money_kol_vo = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.money_kol_vo.setFont(font)
+        self.money_kol_vo.setObjectName("money_kol_vo")
+        self.verticalLayout_2.addWidget(self.money_kol_vo)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.label.setText(_translate("Dialog", "Игр сыграно"))
+        self.label_2.setText(_translate("Dialog", "Сыграно на легком"))
+        self.label_3.setText(_translate("Dialog", "Сыграно на нормальном"))
+        self.label_4.setText(_translate("Dialog", "Сыграно на сложном"))
+        self.label_5.setText(_translate("Dialog", "Сыграно на экстримальном"))
+        self.label_6.setText(_translate("Dialog", "Побед"))
+        self.label_7.setText(_translate("Dialog", "Поражений"))
+        self.label_8.setText(_translate("Dialog", "Не доиграно"))
+        self.label_9.setText(_translate("Dialog", "Побед на легком"))
+        self.label_10.setText(_translate("Dialog", "Побед на нормальном"))
+        self.label_11.setText(_translate("Dialog", "Побед на сложном"))
+        self.label_12.setText(_translate("Dialog", "Побед на экстримальном"))
+        self.label_13.setText(_translate("Dialog", "Побед / Поражений"))
+        self.label_14.setText(_translate("Dialog", "Общее время в игре"))
+        self.label_15.setText(_translate("Dialog", "Среднее время игры в раунде"))
+        self.label_16.setText(_translate("Dialog", "Кол-во денег"))
+        self.games_sigrano.setText(_translate("Dialog", "0"))
+        self.easy_games.setText(_translate("Dialog", "0"))
+        self.normal_games.setText(_translate("Dialog", "0"))
+        self.hard_games.setText(_translate("Dialog", "0"))
+        self.extrim_games.setText(_translate("Dialog", "0"))
+        self.wins.setText(_translate("Dialog", "0"))
+        self.loses.setText(_translate("Dialog", "0"))
+        self.ne_doigrano.setText(_translate("Dialog", "0"))
+        self.wins_easy.setText(_translate("Dialog", "0"))
+        self.wins_normal.setText(_translate("Dialog", "0"))
+        self.wins_hard.setText(_translate("Dialog", "0"))
+        self.wins_extrim.setText(_translate("Dialog", "0"))
+        self.wins_on_lose.setText(_translate("Dialog", "0"))
+        self.all_time.setText(_translate("Dialog", "0 мин."))
+        self.sa_time_in_round.setText(_translate("Dialog", "0 мин."))
+        self.money_kol_vo.setText(_translate("Dialog", "0"))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+
+
+class Setting(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("back_btn")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(180, 195, 291, 121))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.audio_setting = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.audio_setting.setMinimumSize(QtCore.QSize(0, 50))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.audio_setting.setFont(font)
+        self.audio_setting.setObjectName("audio_setting")
+        self.verticalLayout.addWidget(self.audio_setting)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label = QtWidgets.QLabel(parent=Dialog)
+        self.label.setGeometry(QtCore.QRect(170, 90, 341, 91))
+        font = QtGui.QFont()
+        font.setPointSize(48)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+        self.audio_setting.setText(_translate("Dialog", "Аудио"))
+        self.label.setText(_translate("Dialog", "Настройки"))
+
+
+class Audio(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("back_btn")
+        self.label = QtWidgets.QLabel(parent=Dialog)
+        self.label.setGeometry(QtCore.QRect(240, 20, 341, 111))
+        font = QtGui.QFont()
+        font.setPointSize(48)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayoutWidget_2 = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(200, 110, 351, 261))
+        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.audio_all_spin = QtWidgets.QSlider(parent=self.verticalLayoutWidget_2)
+        self.audio_all_spin.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.audio_all_spin.setObjectName("audio_all_spin")
+        self.verticalLayout_2.addWidget(self.audio_all_spin)
+        self.audio_menu_spin = QtWidgets.QSlider(parent=self.verticalLayoutWidget_2)
+        self.audio_menu_spin.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.audio_menu_spin.setObjectName("audio_menu_spin")
+        self.verticalLayout_2.addWidget(self.audio_menu_spin)
+        self.audio_game_spin = QtWidgets.QSlider(parent=self.verticalLayoutWidget_2)
+        self.audio_game_spin.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.audio_game_spin.setObjectName("audio_game_spin")
+        self.verticalLayout_2.addWidget(self.audio_game_spin)
+        self.verticalLayoutWidget_3 = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(40, 130, 141, 211))
+        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.label_3 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout_3.addWidget(self.label_3)
+        self.label_2 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_3.addWidget(self.label_2)
+        self.label_4 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_3.addWidget(self.label_4)
+        self.savee = QtWidgets.QPushButton(parent=Dialog)
+        self.savee.setGeometry(QtCore.QRect(280, 380, 101, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.savee.setFont(font)
+        self.savee.setObjectName("savee")
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+        self.label.setText(_translate("Dialog", "Аудио"))
+        self.label_3.setText(_translate("Dialog", "Общая громкость"))
+        self.label_2.setText(_translate("Dialog", "Громкость в меню"))
+        self.label_4.setText(_translate("Dialog", "Громкость в игре"))
+        self.savee.setText(_translate("Dialog", "Сохранить"))
+
+
+class ShopMenu(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("back_btn")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(180, 195, 291, 191))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.shop = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.shop.setMinimumSize(QtCore.QSize(0, 50))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.shop.setFont(font)
+        self.shop.setObjectName("shop")
+        self.verticalLayout.addWidget(self.shop)
+        self.promocode = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.promocode.setMinimumSize(QtCore.QSize(0, 50))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.promocode.setFont(font)
+        self.promocode.setObjectName("promocode")
+        self.verticalLayout.addWidget(self.promocode)
+        self.label = QtWidgets.QLabel(parent=Dialog)
+        self.label.setGeometry(QtCore.QRect(200, 100, 271, 71))
+        font = QtGui.QFont()
+        font.setPointSize(48)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+        self.shop.setText(_translate("Dialog", "Магазин"))
+        self.promocode.setText(_translate("Dialog", "Промокоды"))
+        self.label.setText(_translate("Dialog", "Магазин"))
+
+
+class Promocode(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("back_btn")
+        self.label = QtWidgets.QLabel(parent=Dialog)
+        self.label.setGeometry(QtCore.QRect(165, 40, 341, 81))
+        font = QtGui.QFont()
+        font.setPointSize(48)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(129, 149, 391, 41))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.textEdit = QtWidgets.QTextEdit(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.textEdit.setFont(font)
+        self.textEdit.setObjectName("textEdit")
+        self.verticalLayout.addWidget(self.textEdit)
+        self.verticalLayoutWidget_2 = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(210, 210, 231, 91))
+        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.check_code = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
+        self.check_code.setMinimumSize(QtCore.QSize(0, 50))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.check_code.setFont(font)
+        self.check_code.setObjectName("check_code")
+        self.verticalLayout_2.addWidget(self.check_code)
+        self.bool_code_check = QtWidgets.QLabel(parent=self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.bool_code_check.setFont(font)
+        self.bool_code_check.setText("")
+        self.bool_code_check.setObjectName("bool_code_check")
+        self.verticalLayout_2.addWidget(self.bool_code_check)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+        self.label.setText(_translate("Dialog", "Промокод"))
+        self.check_code.setText(_translate("Dialog", "Проверить"))
+
+
+class Inventory(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("back_btn")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(19, 59, 611, 161))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.valve = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.valve.setMinimumSize(QtCore.QSize(150, 150))
+        self.valve.setMaximumSize(QtCore.QSize(150, 150))
+        self.valve.setText("")
+        self.valve.setObjectName("valvle")
+        self.horizontalLayout.addWidget(self.valve)
+        self.umad = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.umad.setMinimumSize(QtCore.QSize(150, 150))
+        self.umad.setMaximumSize(QtCore.QSize(150, 150))
+        self.umad.setText("")
+        self.umad.setObjectName("umad")
+        self.horizontalLayout.addWidget(self.umad)
+        self.flash = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.flash.setMinimumSize(QtCore.QSize(150, 150))
+        self.flash.setMaximumSize(QtCore.QSize(150, 150))
+        self.flash.setText("")
+        self.flash.setObjectName("flash")
+        self.horizontalLayout.addWidget(self.flash)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayoutWidget_2 = QtWidgets.QWidget(parent=Dialog)
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(68, 229, 551, 21))
+        self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.valve_radio = QtWidgets.QRadioButton(parent=self.horizontalLayoutWidget_2)
+        self.valve_radio.setMinimumSize(QtCore.QSize(200, 0))
+        self.valve_radio.setObjectName("valve_radio")
+        self.horizontalLayout_2.addWidget(self.valve_radio)
+        self.umad_radio = QtWidgets.QRadioButton(parent=self.horizontalLayoutWidget_2)
+        self.umad_radio.setObjectName("umad_radio")
+        self.horizontalLayout_2.addWidget(self.umad_radio)
+        self.flash_radio = QtWidgets.QRadioButton(parent=self.horizontalLayoutWidget_2)
+        self.flash_radio.setObjectName("flash_radio")
+        self.horizontalLayout_2.addWidget(self.flash_radio)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+        self.valve_radio.setText(_translate("Dialog", "Valve (Counter-Strike 2 Music Kit)"))
+        self.umad_radio.setText(_translate("Dialog", "bbno$, u mad!"))
+        self.flash_radio.setText(_translate("Dialog", "Flashbang Dance"))
+
+
+class Shop(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(650, 450)
+        Dialog.setMinimumSize(QtCore.QSize(650, 450))
+        Dialog.setMaximumSize(QtCore.QSize(650, 450))
+        self.version = QtWidgets.QLabel(parent=Dialog)
+        self.version.setGeometry(QtCore.QRect(570, 420, 71, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.version.setFont(font)
+        self.version.setObjectName("version")
+        self.back_btn = QtWidgets.QPushButton(parent=Dialog)
+        self.back_btn.setEnabled(True)
+        self.back_btn.setGeometry(QtCore.QRect(10, 10, 31, 31))
+        self.back_btn.setObjectName("back_btn")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(19, 59, 611, 161))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.valve = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.valve.setMinimumSize(QtCore.QSize(150, 150))
+        self.valve.setMaximumSize(QtCore.QSize(150, 150))
+        self.valve.setText("")
+        self.valve.setObjectName("valve")
+        self.horizontalLayout.addWidget(self.valve)
+        self.umad = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.umad.setMinimumSize(QtCore.QSize(150, 150))
+        self.umad.setMaximumSize(QtCore.QSize(150, 150))
+        self.umad.setText("")
+        self.umad.setObjectName("umad")
+        self.horizontalLayout.addWidget(self.umad)
+        self.flash = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.flash.setMinimumSize(QtCore.QSize(150, 150))
+        self.flash.setMaximumSize(QtCore.QSize(150, 150))
+        self.flash.setText("")
+        self.flash.setObjectName("flash")
+        self.horizontalLayout.addWidget(self.flash)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayoutWidget_2 = QtWidgets.QWidget(parent=Dialog)
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(68, 229, 551, 25))
+        self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.valve_radio = QtWidgets.QRadioButton(parent=self.horizontalLayoutWidget_2)
+        self.valve_radio.setMinimumSize(QtCore.QSize(200, 0))
+        self.valve_radio.setObjectName("valve_radio")
+        self.horizontalLayout_2.addWidget(self.valve_radio)
+        self.umad_radio = QtWidgets.QRadioButton(parent=self.horizontalLayoutWidget_2)
+        self.umad_radio.setObjectName("umad_radio")
+        self.horizontalLayout_2.addWidget(self.umad_radio)
+        self.flash_radio = QtWidgets.QRadioButton(parent=self.horizontalLayoutWidget_2)
+        self.flash_radio.setObjectName("flash_radio")
+        self.horizontalLayout_2.addWidget(self.flash_radio)
+        self.money = QtWidgets.QLCDNumber(parent=Dialog)
+        self.money.setGeometry(QtCore.QRect(543, 12, 91, 41))
+        self.money.setObjectName("money")
+        self.buy = QtWidgets.QPushButton(parent=Dialog)
+        self.buy.setGeometry(QtCore.QRect(280, 390, 81, 41))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.buy.setFont(font)
+        self.buy.setObjectName("buy")
+        self.horizontalLayoutWidget = QtWidgets.QWidget(parent=Dialog)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 260, 611, 31))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.lcdNumber_valve = QtWidgets.QLCDNumber(parent=self.horizontalLayoutWidget)
+        self.lcdNumber_valve.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.lcdNumber_valve.setObjectName("lcdNumber_valve")
+        self.horizontalLayout_3.addWidget(self.lcdNumber_valve)
+        self.lcdNumber_umad = QtWidgets.QLCDNumber(parent=self.horizontalLayoutWidget)
+        self.lcdNumber_umad.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.lcdNumber_umad.setObjectName("lcdNumber_umad")
+        self.horizontalLayout_3.addWidget(self.lcdNumber_umad)
+        self.lcdNumber_flash = QtWidgets.QLCDNumber(parent=self.horizontalLayoutWidget)
+        self.lcdNumber_flash.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.lcdNumber_flash.setObjectName("lcdNumber_flash")
+        self.horizontalLayout_3.addWidget(self.lcdNumber_flash)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Сапер"))
+        self.version.setText(_translate("Dialog", "         v1.0.0."))
+        self.back_btn.setText(_translate("Dialog", "<-"))
+        self.valve_radio.setText(_translate("Dialog", "Valve (Counter-Strike 2 Music Kit)"))
+        self.umad_radio.setText(_translate("Dialog", "bbno$, u mad!"))
+        self.flash_radio.setText(_translate("Dialog", "Flashbang Dance"))
+        self.buy.setText(_translate("Dialog", "Купить"))
+
+
+def kit_of_music(title=None):
+    con = sqlite3.connect("game_saper.sqlite")
+    cur = con.cursor()
+    result = cur.execute("""SELECT title from shop 
+            WHERE used =(SELECT id FROM yes_or_no WHERE value = 'yes')""").fetchall()
+    con.close()
+    name = result[0][0]
+    if name == 'valve':
+        name = 'default'
+    if title == 'choose':
+        return f"choose_lvl_{name}.mp3"
+    elif title == 'lobby':
+        return f"lobby_ost_{name}.mp3"
+    elif title == 'next_menu1':
+        return f"next_menu1_{name}.mp3"
+    elif title == 'next_menu2':
+        return f"next_menu2_{name}.mp3"
+    elif title == 'promocode':
+        return f"promocode_{name}.mp3"
+    elif title == 'start_game':
+        return f"start_game_{name}.mp3"
+    elif title == 'win':
+        return f"win_{name}.mp3"
+
+
+class GameGo(QWidget, Plant):
+    def __init__(self, difficult):
+        super().__init__()
+        self.setupUig(self)
+        self.lose_game = False
+        self.win_game = False
+        self.game_start = False
+        self.opened = []
+        self.wrong_defuse = []
+        self.list_of_bombs = []
+        self.time_up = False
+        self.right_or_left = ''
+        self.difficult = difficult
+        self.saper_game_play_go()
+
+    def check_bomb(self):
+        if self.lose_game == False and self.win_game == False:
+            name_of_button = self.sender().objectName()
+            x, y = int(name_of_button.split('_')[1]), int(name_of_button.split('_')[2])
+            if self.game_start == False:
+                self.game_start = True
+                self.generate_place(x - 1, y - 1)
+            if (x - 1, y - 1) not in self.flags_coords:
+                if self.plant[y - 1][x - 1] == 1:
+                    print("Клетка - бомба")
+                    self.lose(x, y)
+                elif self.plant[y - 1][x - 1] == 0:
+                    print("Клетка - пустая")
+                    self.open_buttons(x - 1, y - 1)
+
+    def win(self):
+        print('Победа')
+        self.win_game = True
+        self.load_mp3(kit_of_music('win'))
+        self._player.play()
+        self.end_game()
+        self.time_up = True
+        self.flag_btn.setText('Победа')
+        for i in self.list_of_plant:
+            for j in i:
+                if j.isEnabled():
+                    j.setIcon(QIcon('flag.png'))
+        print(f"Время={self.lcdNumber.value()}")
+
+    def lose(self, x, y):
+        print('Поражение')
+        self.lose_game = True
+        self.list_of_plant[x - 1][y - 1].setStyleSheet("background-color: red;")
+        self.end_game()
+        self.time_up = True
+        self.flag_btn.setText('Поражение')
+        print(f"Время={self.lcdNumber.value()}")
+        self.load_mp3('bomb_exp.mp3')
+        self._player.play()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[2][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+    def end_game(self):
+        self.flag_btn.clicked.connect(self.go_to_main)
+        for i in self.list_of_plant:
+            for j in i:
+                name = j.objectName()
+                for z in self.list_of_bombs:
+                    if z == (int(name.split('_')[1]) - 1, int(name.split('_')[2]) - 1):
+                        if z not in self.flags_coords:
+                            if self.lose_game:
+                                j.setIcon(QIcon('bomb.png'))
+                        self.list_of_bombs.remove(z)
+
+        for i in self.list_of_plant:
+            for j in i:
+                for z in self.wrong_defuse:
+                    if z == (int(j.objectName().split('_')[1]) - 1, int(j.objectName().split('_')[2]) - 1):
+                        j.setIcon(QIcon('wrong_bomb.png'))
+
+        self.flags.display(0)
+        self.update_data_base()
+
+    def go_to_main(self):
+        self._player.stop()
+        self.main_menu = MenuM()
+        self.main_menu.show()
+        self.close()
+
+    def update_data_base(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Игр сыграно';
+            """)
+        if self.difficult == 'Легкий':
+            cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Сыграно на легком';""")
+            if self.win_game:
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 1
+                WHERE title = 'Побед на легком';""")
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 10
+                WHERE title = 'Кол-во денег';""")
+        elif self.difficult == 'Нормальный':
+            cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Сыграно на нормальном';""")
+            if self.win_game:
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 1
+                WHERE title = 'Побед на нормальном';""")
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 70
+                WHERE title = 'Кол-во денег';""")
+        elif self.difficult == 'Сложный':
+            cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Сыграно на сложном';""")
+            if self.win_game:
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 1
+                WHERE title = 'Побед на сложном';""")
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 200
+                WHERE title = 'Кол-во денег';""")
+        elif self.difficult == 'Экстрим':
+            cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Сыграно на экстримальном';""")
+            if self.win_game:
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 1
+                WHERE title = 'Побед на экстримальном';""")
+                cur.execute("""UPDATE Stats
+                SET stat = stat + 500
+                WHERE title = 'Кол-во денег';""")
+        if self.win_game:
+            cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Побед';""")
+        elif self.lose_game:
+            cur.execute("""UPDATE Stats
+            SET stat = stat + 1
+            WHERE title = 'Поражений';""")
+        cur.execute("""UPDATE Stats
+        SET stat = stat - 1
+        WHERE title = 'Не доиграно';""")
+        cur.execute(f"UPDATE Stats SET stat = stat + {round(self.sec / 60, 2)} WHERE title = 'Время в игре';")
+        con.commit()
+        con.close()
+
+    def check_n_on_bomb(self, x, y):
+        count_of_bombs_around = 0
+        if (x - 1 >= 0 and y - 1 >= 0) and (x - 1 <= 9 and y - 1 <= 9):
+            if self.plant[y - 1][x - 1] == 1:
+                count_of_bombs_around += 1
+        if x >= 0 and y - 1 >= 0 and (x <= 9 and y - 1 <= 9):
+            if self.plant[y - 1][x] == 1:
+                count_of_bombs_around += 1
+        if x + 1 >= 0 and y - 1 >= 0 and (x + 1 <= 9 and y - 1 <= 9):
+            if self.plant[y - 1][x + 1] == 1:
+                count_of_bombs_around += 1
+        if x + 1 >= 0 and y >= 0 and (x + 1 <= 9 and y <= 9):
+            if self.plant[y][x + 1] == 1:
+                count_of_bombs_around += 1
+        if x + 1 >= 0 and y + 1 >= 0 and (x + 1 <= 9 and y + 1 <= 9):
+            if self.plant[y + 1][x + 1] == 1:
+                count_of_bombs_around += 1
+        if x >= 0 and y + 1 >= 0 and (x <= 9 and y + 1 <= 9):
+            if self.plant[y + 1][x] == 1:
+                count_of_bombs_around += 1
+        if x - 1 >= 0 and y + 1 >= 0 and (x - 1 <= 9 and y + 1 <= 9):
+            if self.plant[y + 1][x - 1] == 1:
+                count_of_bombs_around += 1
+        if x - 1 >= 0 and y >= 0 and (x - 1 <= 9 and y <= 9):
+            if self.plant[y][x - 1] == 1:
+                count_of_bombs_around += 1
+        return count_of_bombs_around
+
+    def zero_on_btn(self, x, y):
+        self.list_of_plant[x][y].setEnabled(False)
+        need_open = [(-1, -1), (0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0)]
+        start_with = [(x, y)]
+        while start_with:
+            now_x, now_y = start_with.pop(0)
+            for i, j in need_open:
+                new_x = now_x + i
+                new_y = now_y + j
+                if 0 <= new_x < 10 and 0 <= new_y < 10 and self.list_of_plant[new_x][new_y].isEnabled() and \
+                        self.plant[new_y][new_x] != 1 and (new_x, new_y) not in self.flags_coords:
+                    if self.check_n_on_bomb(new_x, new_y) > 0:
+                        self.list_of_plant[new_x][new_y].setText(str(self.check_n_on_bomb(new_x, new_y)))
+                        self.list_of_plant[new_x][new_y].setEnabled(False)
+                    else:
+                        if self.plant[new_y][new_x] == 0:
+                            self.list_of_plant[new_x][new_y].setEnabled(False)
+                            start_with.append((new_x, new_y))
+                        else:
+                            self.list_of_plant[new_x][new_y].setEnabled(False)
+                    self.list_of_plant[new_x][new_y].setStyleSheet("background-color: #DDDDDD;")
+
+    def open_buttons(self, x, y):
+        if (x, y) in self.opened:
+            return
+
+        if self.list_of_plant[x][y].isEnabled():
+            self.list_of_plant[x][y].setEnabled(False)
+            self.list_of_plant[x][y].setText('')
+            self.opened.append((x, y))
+
+        if self.plant[y][x] == 1:
+            print("Клетка - бомба")
+            self.lose(x, y)
+        count_of_bombs_around = self.check_n_on_bomb(x, y)
+        if count_of_bombs_around == 0:
+            self.zero_on_btn(x, y)
+        else:
+            self.sender().setText(str(count_of_bombs_around))
+        self.sender().setStyleSheet("background-color: #DDDDDD;")
+        count_of_enable = 0
+        for i in self.list_of_plant:
+            for j in i:
+                if j.isEnabled():
+                    count_of_enable += 1
+        if count_of_enable == self.n_bombs:
+            self.win()
+
+    def generate_place(self, x_k, y_k):
+        for i in range(self.n_bombs):
+            a = True
+            while a:
+                x = random.randint(0, 9)
+                y = random.randint(0, 9)
+                if self.plant[y][x] != 1 and (x != x_k or y != y_k):
+                    if ((x != x_k - 1 or y != y_k - 1) and (x != x_k or y != y_k - 1)
+                            and (x != x_k + 1 or y != y_k - 1) and (x != x_k + 1 or y != y_k)
+                            and (x != x_k + 1 or y != y_k + 1) and (x != x_k or y != y_k + 1)
+                            and (x != x_k - 1 or y != y_k + 1) and (x != x_k - 1 or y != y_k)):
+                        self.plant[y][x] = 1
+                        a = False
+        count = 0
+        for i in self.plant:
+            for j in i:
+                if j == 1:
+                    y = count // 10
+                    x = count % 10
+                    self.list_of_bombs.append((x, y))
+                count += 1
+        pprint(self.plant)
+        th = Thread(target=self.timer, args=())
+        th.start()
+
+    def defusing(self, name_of_button):
+        x, y = int(name_of_button.split('_')[1]), int(name_of_button.split('_')[2])
+        if (x - 1, y - 1) not in self.flags_coords:
+            self.list_of_plant[x - 1][y - 1].setIcon(QIcon('flag.png'))
+            self.flags_coords.append((x - 1, y - 1))
+            self.flags.display(self.flags.value() - 1)
+            if self.plant[y - 1][x - 1] != 1:
+                self.wrong_defuse.append((x - 1, y - 1))
+        elif (x - 1, y - 1) in self.flags_coords:
+            self.list_of_plant[x - 1][y - 1].setIcon(QIcon())
+            self.flags_coords.remove((x - 1, y - 1))
+            self.flags.display(self.flags.value() + 1)
+            if (x - 1, y - 1) in self.wrong_defuse:
+                self.wrong_defuse.remove((x - 1, y - 1))
+
+    def defuse_or_not(self):
+        if self.right_or_left == 'right_click':
+            self.check_bomb()
+
+    def timer(self):
+        self.sec = 0
+        while not self.time_up:
+            self.lcdNumber.display(self.sec)
+            time.sleep(1)
+            self.sec += 1
+
+    def left_click(self):
+        if self.lose_game == False and self.win_game == False:
+            self.right_or_left = 'right_click'
+
+    def mousePressEvent(self, event):
+        if self.lose_game == False and self.win_game == False:
+            button = self.childAt(event.pos())
+            if button and isinstance(button, QPushButton):
+                if event.button() == Qt.MouseButton.RightButton:
+                    self.right_or_left = 'left_click'
+                    self.defusing(button.objectName())
+
+    def saper_game_play_go(self):
+        print(f"\n{self.difficult}\n")
+        self.volume()
+        self.plant = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+        self.flags_coords = []
+
+        self.list_of_plant = [[self.place_1_1, self.place_1_2, self.place_1_3, self.place_1_4, self.place_1_5,
+                               self.place_1_6, self.place_1_7, self.place_1_8, self.place_1_9, self.place_1_10],
+                              [self.place_2_1, self.place_2_2, self.place_2_3, self.place_2_4, self.place_2_5,
+                               self.place_2_6, self.place_2_7, self.place_2_8, self.place_2_9, self.place_2_10],
+                              [self.place_3_1, self.place_3_2, self.place_3_3, self.place_3_4, self.place_3_5,
+                               self.place_3_6, self.place_3_7, self.place_3_8, self.place_3_9, self.place_3_10],
+                              [self.place_4_1, self.place_4_2, self.place_4_3, self.place_4_4, self.place_4_5,
+                               self.place_4_6, self.place_4_7, self.place_4_8, self.place_4_9, self.place_4_10],
+                              [self.place_5_1, self.place_5_2, self.place_5_3, self.place_5_4, self.place_5_5,
+                               self.place_5_6, self.place_5_7, self.place_5_8, self.place_5_9, self.place_5_10],
+                              [self.place_6_1, self.place_6_2, self.place_6_3, self.place_6_4, self.place_6_5,
+                               self.place_6_6, self.place_6_7, self.place_6_8, self.place_6_9, self.place_6_10],
+                              [self.place_7_1, self.place_7_2, self.place_7_3, self.place_7_4, self.place_7_5,
+                               self.place_7_6, self.place_7_7, self.place_7_8, self.place_7_9, self.place_7_10],
+                              [self.place_8_1, self.place_8_2, self.place_8_3, self.place_8_4, self.place_8_5,
+                               self.place_8_6, self.place_8_7, self.place_8_8, self.place_8_9, self.place_8_10],
+                              [self.place_9_1, self.place_9_2, self.place_9_3, self.place_9_4, self.place_9_5,
+                               self.place_9_6, self.place_9_7, self.place_9_8, self.place_9_9, self.place_9_10],
+                              [self.place_10_1, self.place_10_2, self.place_10_3, self.place_10_4, self.place_10_5,
+                               self.place_10_6, self.place_10_7, self.place_10_8, self.place_10_9, self.place_10_10]]
+
+        if self.difficult == 'Легкий':
+            self.n_bombs = 5
+        elif self.difficult == 'Нормальный':
+            self.n_bombs = 15
+        elif self.difficult == 'Сложный':
+            self.n_bombs = 20
+        elif self.difficult == 'Экстрим':
+            self.n_bombs = 25
+        self.flags.display(self.n_bombs)
+        for i in self.list_of_plant:
+            for j in i:
+                j.setMinimumSize(35, 20)
+                j.clicked.connect(self.left_click)
+                j.clicked.connect(self.defuse_or_not)
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        cur.execute("""UPDATE Stats
+                    SET stat = stat + 1
+                    WHERE title = 'Не доиграно';""")
+        con.commit()
+        con.close()
+
+        self.load_mp3(kit_of_music('start_game'))
+        self._player.play()
+
+
+class MenuM(QWidget, MenuMenu):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.playy.clicked.connect(self.go_to_lvl_menu)
+        self.rick_roll.clicked.connect(self.rick_roll_go)
+        self.stats.clicked.connect(self.go_to_stats)
+        self.settings.clicked.connect(self.go_to_settings)
+        self.shop.clicked.connect(self.go_to_shop)
+        self.inventory_btn.clicked.connect(self.go_to_inventory)
+        self.exit.clicked.connect(self.close)
+        self.load_mp3(kit_of_music('lobby'))
+        self._player.play()
+
+    def go_to_stats(self):
+        self._player.stop()
+        self.stats_menu = MenuSt()
+        self.stats_menu.show()
+        self.close()
+
+    def go_to_settings(self):
+        self._player.stop()
+        self.settings_menu = MenuSe()
+        self.settings_menu.show()
+        self.close()
+
+    def go_to_shop(self):
+        self._player.stop()
+        self.shop_menu = MenuS()
+        self.shop_menu.show()
+        self.close()
+
+    def go_to_inventory(self):
+        self._player.stop()
+        self.inventory_menu = MenuI()
+        self.inventory_menu.show()
+        self.close()
+
+    def rick_roll_go(self):
+        webbrowser.open("https://rutube.ru/video/f3b615db135287a64584737e664e1e4b/")
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Ха-ха-ха")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        layout = QVBoxLayout()
+        rick = QLabel("Ты зарикроллен!")
+        layout.addWidget(rick)
+        rick.setFont(font)
+        back_btn = QPushButton("Закрыть")
+        back_btn.clicked.connect(dialog.close)
+        layout.addWidget(back_btn)
+
+        dialog.setLayout(layout)
+        dialog.exec()
+
+    def go_to_lvl_menu(self):
+        self._player.stop()
+        self.lvl_menu = MenuL()
+        self.lvl_menu.show()
+        self.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuL(QWidget, Lvl):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.back_btn.clicked.connect(self.go_to_main)
+        self.easy.clicked.connect(self.go_to_game)
+        self.normal.clicked.connect(self.go_to_game)
+        self.hard.clicked.connect(self.go_to_game)
+        self.extrim.clicked.connect(self.go_to_game)
+
+        self.load_mp3(kit_of_music('choose'))
+        self._player.play()
+
+    def go_to_main(self):
+        self._player.stop()
+        self.main_menu = MenuM()
+        self.main_menu.show()
+        self.close()
+
+    def go_to_game(self):
+        self._player.stop()
+        difficult = self.sender().text()
+        self.game = GameGo(difficult)
+        self.game.show()
+        self.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuSt(QWidget, Stats):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.back_btn.clicked.connect(self.back_btn_go)
+        self.data_base()
+        self.load_mp3(kit_of_music(f"next_menu{random.randint(1, 2)}"))
+        self._player.play()
+
+    def back_btn_go(self):
+        self._player.stop()
+        self.main_menu = MenuM()
+        self.main_menu.show()
+        self.close()
+
+    def data_base(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+
+        wins = cur.execute("""SELECT stat from Stats WHERE title = 'Побед';""").fetchall()[0][0]
+        loses = cur.execute("""SELECT stat from Stats WHERE title = 'Поражений';""").fetchall()[0][0]
+        ne_doigrano = cur.execute("""SELECT stat from Stats WHERE title = 'Не доиграно';""").fetchall()[0][0]
+        if loses + ne_doigrano == 0:
+            kd = 0
+        else:
+            kd = wins / (loses + ne_doigrano)
+        kd = round(kd, 2)
+        cur.execute(f"UPDATE Stats SET stat = {kd} WHERE title = 'Побед / Поражений';")
+
+        all_time = cur.execute("""SELECT stat from Stats 
+        WHERE title = 'Время в игре';""").fetchall()[0][0]
+        rounds = cur.execute("""SELECT stat from Stats 
+        WHERE title = 'Игр сыграно';""").fetchall()[0][0]
+        if rounds + ne_doigrano == 0:
+            time_in_round = 0
+        else:
+            time_in_round = round(all_time / (rounds + ne_doigrano), 2)
+        cur.execute(f"UPDATE Stats SET stat = {time_in_round} WHERE title = 'Среднее время в раунде';")
+
+        self.result = cur.execute(f"SELECT * from Stats").fetchall()
+        pprint(self.result)
+        con.commit()
+        con.close()
+        self.show_table()
+
+    def show_table(self):
+        self.games_sigrano.setText(str(self.result[0][1]))
+        self.easy_games.setText(str(self.result[1][1]))
+        self.normal_games.setText(str(self.result[2][1]))
+        self.hard_games.setText(str(self.result[3][1]))
+        self.extrim_games.setText(str(self.result[4][1]))
+        self.wins.setText(str(self.result[5][1]))
+        self.loses.setText(str(self.result[6][1]))
+        self.ne_doigrano.setText(str(self.result[7][1]))
+        self.wins_easy.setText(str(self.result[8][1]))
+        self.wins_normal.setText(str(self.result[9][1]))
+        self.wins_hard.setText(str(self.result[10][1]))
+        self.wins_extrim.setText(str(self.result[11][1]))
+        self.wins_on_lose.setText(str(round(self.result[12][1], 2)))
+        self.all_time.setText(str(round(self.result[13][1], 2)) + ' мин.')
+        self.sa_time_in_round.setText(str(round(self.result[14][1], 2)) + ' мин.')
+        self.money_kol_vo.setText(str(self.result[15][1]))
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuSe(QWidget, Setting):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.load_mp3(kit_of_music(f"next_menu{random.randint(1, 2)}"))
+        self._player.play()
+
+        self.back_btn.clicked.connect(self.go_to_main)
+        self.audio_setting.clicked.connect(self.go_to_audio)
+
+    def go_to_audio(self):
+        self._player.stop()
+        self.audio_menu = MenuAu()
+        self.audio_menu.show()
+        self.close()
+
+    def go_to_main(self):
+        self._player.stop()
+        self.main_menu = MenuM()
+        self.main_menu.show()
+        self.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuAu(QWidget, Audio):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.load_mp3(kit_of_music(f"next_menu{random.randint(1, 2)}"))
+        self._player.play()
+
+        self.savee.clicked.connect(self.data_base)
+        self.back_btn.clicked.connect(self.go_to_setting)
+
+        self.select_data_base()
+
+    def select_data_base(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT * from settings""").fetchall()
+        self.audio_all_spin.setValue(result[0][1])
+        self.audio_menu_spin.setValue(result[1][1])
+        self.audio_game_spin.setValue(result[2][1])
+        con.close()
+
+    def go_to_setting(self):
+        self._player.stop()
+        self.setting_menu = MenuSe()
+        self.setting_menu.show()
+        self.close()
+
+    def data_base(self):
+        audio_all = self.audio_all_spin.value()
+        audio_menu = self.audio_menu_spin.value()
+        audio_game = self.audio_game_spin.value()
+
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        cur.execute(f"UPDATE settings SET value = {audio_all} WHERE title = 'Аудио общее';")
+        cur.execute(f"UPDATE settings SET value = {audio_menu} WHERE title = 'Аудио меню';")
+        cur.execute(f"UPDATE settings SET value = {audio_game} WHERE title = 'Аудио игры';")
+        con.commit()
+        con.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuS(QWidget, ShopMenu):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.load_mp3(kit_of_music(f"next_menu{random.randint(1, 2)}"))
+        self._player.play()
+        self.back_btn.clicked.connect(self.go_to_main)
+        self.promocode.clicked.connect(self.go_to_promocode)
+        self.shop.clicked.connect(self.go_to_shop)
+
+    def go_to_shop(self):
+        self._player.stop()
+        self.shop_menu = MenuSh()
+        self.shop_menu.show()
+        self.close()
+
+    def go_to_main(self):
+        self._player.stop()
+        self.main_menu = MenuM()
+        self.main_menu.show()
+        self.close()
+
+    def go_to_promocode(self):
+        self._player.stop()
+        self.promo_code = MenuPr()
+        self.promo_code.show()
+        self.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuPr(QWidget, Promocode):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.load_mp3(kit_of_music('promocode'))
+        self._player.play()
+        self.back_btn.clicked.connect(self.go_to_main_shop)
+        self.check_code.clicked.connect(self.check_code_go)
+
+    def go_to_main_shop(self):
+        self._player.stop()
+        self.main_menu = MenuS()
+        self.main_menu.show()
+        self.close()
+
+    def check_code_go(self):
+        code = self.textEdit.toPlainText()
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT * from promocode""").fetchall()
+        for i in result:
+            if code == i[0]:
+                if i[1] == 2:
+                    print('Промокод подтвержден')
+                    self.bool_code_check.setText('Промокод подтвержден')
+                    cur.execute(f"UPDATE promocode SET get = 1 WHERE title = '{i[0]}'")
+                    if i[0] == 'САПЕР228':
+                        cur.execute(f"UPDATE Stats SET stat = stat + 10000 WHERE title = 'Кол-во денег'")
+                    con.commit()
+                    self.do_promocode(code)
+                    break
+                else:
+                    print('Промокод уже использован')
+                    self.bool_code_check.setText('Промокод уже использован')
+                    break
+            else:
+                print('Промокод не подтвержден')
+                self.bool_code_check.setText('Промокод не подтвержден')
+            con.close()
+
+    def do_promocode(self, code):
+        print(f"promocode = {code}")
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuI(QWidget, Inventory):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.back_btn.clicked.connect(self.back_to_menu)
+        self.valve_radio.clicked.connect(self.update_database)
+        self.umad_radio.clicked.connect(self.update_database)
+        self.flash_radio.clicked.connect(self.update_database)
+        self.initUI()
+        self.load_mp3(kit_of_music(f"next_menu{random.randint(1, 2)}"))
+        self._player.play()
+
+    def initUI(self):
+        self.valve.setScaledContents(True)
+        self.umad.setScaledContents(True)
+        self.flash.setScaledContents(True)
+        self.valve.setPixmap(QPixmap('valve.png'))
+        self.umad.setPixmap(QPixmap('umad.png'))
+        self.flash.setPixmap(QPixmap('flash.png'))
+        self.data_base()
+
+    def data_base(self):
+        d = {'valve': self.valve_radio, 'umad': self.umad_radio, 'flash': self.flash_radio}
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT title from shop 
+        WHERE get =(SELECT id FROM yes_or_no WHERE value = 'no')""").fetchall()
+
+        for i in result:
+            d[i[0]].setEnabled(False)
+        result = cur.execute("""SELECT title from shop 
+        WHERE used =(SELECT id FROM yes_or_no WHERE value = 'yes')""").fetchall()
+        d[result[0][0]].setChecked(True)
+        con.close()
+
+    def update_database(self):
+        valve_r = self.valve_radio.isChecked()
+        umad_r = self.umad_radio.isChecked()
+        flash_r = self.flash_radio.isChecked()
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        if valve_r:
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'yes') WHERE title = 'valve'""")
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'no') WHERE title = 'umad'""")
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'no') WHERE title = 'flash'""")
+        elif umad_r:
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'yes') WHERE title = 'umad'""")
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'no') WHERE title = 'valve'""")
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'no') WHERE title = 'flash'""")
+        elif flash_r:
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'yes') WHERE title = 'flash'""")
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'no') WHERE title = 'valve'""")
+            cur.execute("""UPDATE shop SET used =(SELECT id FROM yes_or_no 
+            WHERE value = 'no') WHERE title = 'umad'""")
+        con.commit()
+        con.close()
+
+    def back_to_menu(self):
+        self._player.stop()
+        self.main_menu = MenuM()
+        self.main_menu.show()
+        self.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+class MenuSh(QWidget, Shop):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.volume()
+        self.load_mp3(kit_of_music(f"next_menu{random.randint(1, 2)}"))
+        self._player.play()
+        self.initUI()
+        self.back_btn.clicked.connect(self.back_to_shop_menu)
+        self.buy.clicked.connect(self.buy_item)
+        self.data_base()
+
+    def buy_item(self):
+        v = self.valve_radio.isChecked()
+        u = self.umad_radio.isChecked()
+        f = self.flash_radio.isChecked()
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        if v and self.lcdNumber_valve.value() < self.money.value():
+            cur.execute("""UPDATE shop SET get =(SELECT id FROM yes_or_no 
+                        WHERE value = 'yes') WHERE title = 'valve'""")
+            self.valve_radio.setEnabled(False)
+            res = self.money.value() - self.lcdNumber_valve.value()
+            cur.execute(f"UPDATE Stats SET stat = {res} WHERE title = 'Кол-во денег'")
+            self.money.display(res)
+        elif u and self.lcdNumber_umad.value() < self.money.value():
+            cur.execute("""UPDATE shop SET get =(SELECT id FROM yes_or_no 
+                        WHERE value = 'yes') WHERE title = 'umad'""")
+            self.umad_radio.setEnabled(False)
+            res = self.money.value() - self.lcdNumber_umad.value()
+            cur.execute(f"UPDATE Stats SET stat = {res} WHERE title = 'Кол-во денег'")
+            self.money.display(res)
+        elif f and self.lcdNumber_flash.value() < self.money.value():
+            cur.execute("""UPDATE shop SET get =(SELECT id FROM yes_or_no 
+                        WHERE value = 'yes') WHERE title = 'flash'""")
+            self.flash_radio.setEnabled(False)
+            res = self.money.value() - self.lcdNumber_flash.value()
+            cur.execute(f"UPDATE Stats SET stat = {res} WHERE title = 'Кол-во денег'")
+            self.money.display(res)
+        con.commit()
+        con.close()
+
+    def back_to_shop_menu(self):
+        self._player.stop()
+        self.shop = MenuS()
+        self.shop.show()
+        self.close()
+
+    def initUI(self):
+        self.valve.setScaledContents(True)
+        self.umad.setScaledContents(True)
+        self.flash.setScaledContents(True)
+        self.valve.setPixmap(QPixmap('valve.png'))
+        self.umad.setPixmap(QPixmap('umad.png'))
+        self.flash.setPixmap(QPixmap('flash.png'))
+
+    def data_base(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT title from shop 
+        WHERE get =(SELECT id FROM yes_or_no WHERE value = 'yes')""").fetchall()
+        d = {'valve': self.valve_radio, 'umad': self.umad_radio, 'flash': self.flash_radio}
+        for i in result:
+            d[i[0]].setEnabled(False)
+        result2 = cur.execute("""SELECT title, price from shop""").fetchall()
+        d2 = {'valve': self.lcdNumber_valve, 'umad': self.lcdNumber_umad, 'flash': self.lcdNumber_flash}
+        for i in result2:
+            d2[i[0]].display(i[1])
+        result3 = cur.execute("""SELECT stat from Stats WHERE title = 'Кол-во денег'""").fetchall()
+        self.money.display(result3[0][0])
+        con.close()
+
+    def volume(self):
+        con = sqlite3.connect("game_saper.sqlite")
+        cur = con.cursor()
+        result = cur.execute("""SELECT value from settings""").fetchall()
+        self.volume_value = result[0][0] * result[1][0]
+        con.close()
+
+    def load_mp3(self, filename):
+        media = QtCore.QUrl.fromLocalFile(filename)
+        self._audio_output = QtMultimedia.QAudioOutput()
+        self._player = QtMultimedia.QMediaPlayer()
+        self._player.setAudioOutput(self._audio_output)
+        self._audio_output.setVolume(self.volume_value)
+        self._player.setSource(media)
+
+
+def except_hook(cls, exception, traceback):
+    sys.__excepthook__(cls, exception, traceback)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MenuM()
+    ex.show()
+    sys.excepthook = except_hook
+    sys.exit(app.exec())
